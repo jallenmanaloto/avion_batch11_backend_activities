@@ -15,4 +15,6 @@ def is_isogram(word)
     end
 end
 
-is_isogram('stanley');
+is_isogram('alin'); # returns true
+is_isogram('happyness'); # returns false
+is_isogram('alone'); # returns true

@@ -1,0 +1,104 @@
+
+create table students (
+id integer primary key,
+first_name character varying(255) not null,
+middle_name character varying(255) not null,
+last_name character varying(255) not null,
+age numeric(2,0) default 0,
+location character varying(255)
+);
+
+create table lessons (
+id integer primary key,
+name character varying(255) not null,
+description character varying(255) not null,
+front_end boolean,
+back_end boolean,
+price numeric(3,0) default 0,
+created_at timestamp without time zone NOT NULL,
+updated_at timestamp without time zone NOT NULL
+);
+
+INSERT INTO lessons (id, name, description, front_end, back_end, price, created_at, updated_at)
+VALUES(1, 'Ruby', 'Rubyyyy', FALSE, TRUE, 199.99, current_timestamp, current_timestamp);
+
+INSERT INTO lessons (id, name, description, front_end, back_end, price, created_at, updated_at)
+VALUES(2, 'Python', 'Pythooon', FALSE, TRUE, 190.00, current_timestamp, current_timestamp);
+
+INSERT INTO lessons (id, name, description, front_end, back_end, price, created_at, updated_at)
+VALUES(3, 'Javascript', 'Javascriiiiiipt', FALSE, TRUE, 10.00, current_timestamp, current_timestamp);
+
+INSERT INTO lessons (id, name, description, front_end, back_end, price, created_at, updated_at)
+VALUES(4, 'Rust', 'Ruuuuust', FALSE, TRUE, 10.00, current_timestamp, current_timestamp);
+
+INSERT INTO lessons (id, name, description, front_end, back_end, price, created_at, updated_at)
+VALUES(5, 'Golang', 'Golaaaaang', FALSE, TRUE, 10.00, current_timestamp, current_timestamp);
+
+
+
+
+create table instructors (
+id character varying(255),
+first_name character varying(255) not null,
+last_name character varying(255) not null,
+lesson_id numeric(2,0) default 0,
+created_at timestamp without time zone NOT NULL,
+updated_at timestamp without time zone NOT NULL
+);
+
+
+INSERT INTO instructors (id, first_name, last_name, lesson_id, created_at, updated_at)
+VALUES('','Adrian', 'Co', 1, current_timestamp, current_timestamp);
+
+INSERT INTO instructors (id, first_name, last_name, lesson_id, created_at, updated_at)
+VALUES('','Analyn', 'Cajocson', 1, current_timestamp, current_timestamp);
+
+INSERT INTO instructors (id, first_name, last_name, lesson_id, created_at, updated_at)
+VALUES('','Pau', 'Riosa', 3, current_timestamp, current_timestamp);
+
+INSERT INTO instructors (id, first_name, last_name, lesson_id, created_at, updated_at)
+VALUES('','Maurus', 'Vitor', 3, current_timestamp, current_timestamp);
+
+INSERT INTO instructors (id, first_name, last_name, lesson_id, created_at, updated_at)
+VALUES('','John', 'Young', 6, current_timestamp, current_timestamp);
+
+
+
+
+create table classrooms (
+id integer primary key,
+student_id integer,
+section character varying(255) not null
+);
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(1, 1, 'A');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(2, 2, 'A');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(3, 3, 'B');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(4, 4, 'C');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(5, 5, 'B');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(6, 6, 'A');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(7, 7, 'C');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(8, 8, 'B');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(9, 9, 'B');
+
+INSERT INTO classrooms (id, student_id, section)
+VALUES(10, 10, 'C');
+
+select s.name, c.section, s.name from students s inner join classrooms c on s.student_id = c.student_id;
